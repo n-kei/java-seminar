@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class HitAndBlow_Random {
-		public String output_answer_str(int item_num, int answer_range) {
+		public static String output_answer_str(int item_num, int answer_range) {
 				String answer_str = new String();
 				Random rnd = new Random();
 

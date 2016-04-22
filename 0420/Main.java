@@ -15,7 +15,7 @@ public class Main {
 						System.exit(-1);
 				}
 				String answer_str = HitAndBlow_Random.output_answer_str(item_num, answer_range);
-				HitAndBlow cmp = new HitAndBlow(item_num);
+				HitAndBlow_Compare cmp = new HitAndBlow_Compare(item_num);
 				while(true) {
 						System.out.print(item_num + "個の数字パターンを入力してください: ");
 						String input_str = HitAndBlow_IO.input_str();
@@ -27,7 +27,7 @@ public class Main {
 								HitAndBlow_IO.output_history();	
 								continue;
 						}
-						cmp.Check_HitAndBlow(input_str, answer_str);
+						cmp.check_HitAndBlow(input_str, answer_str);
 						System.out.println("Hit: " + cmp.hit_num + " Blo: " + cmp.blow_num);
 				}
 		}
