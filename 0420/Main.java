@@ -28,7 +28,7 @@ public class Main {
 								continue;
 						}
 						cmp.check_HitAndBlow(input_str, answer_str);
-						System.out.println("Hit: " + cmp.hit_num + " Blo: " + cmp.blow_num);
+						System.out.println("Hit: " + cmp.get_hitNum() + " Blow: " + cmp.get_blowNum());
 				}
 		}
 }
