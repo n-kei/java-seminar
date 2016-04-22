@@ -20,3 +20,5 @@ Hit数が多いのを先に、次にBlow数が多いのを先に表示させる
 
 Comparatorは、並び替えさせたい外の人が指定したほうが良い
 History.sortedResult(new MyComparator());
+
+次回はGUIプログラム作るらしい
