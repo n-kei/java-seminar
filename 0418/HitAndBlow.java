@@ -49,7 +49,7 @@ public class HitAndBlow{
 
 			for(int i = 0; i < item_num * 2 - 1;) { 
 				try { 
-					if(input_str.charAt(i) == " ".toCharArray()[0]) {
+					if(input_str.charAt(i) == ' ') {
 						i++;
 						continue;	
 					}

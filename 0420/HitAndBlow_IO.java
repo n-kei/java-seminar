@@ -13,7 +13,7 @@ public class HitAndBlow_IO {
 		}
 
 		public static void output_history() {
-				System.out.println("History");
+				System.out.println("----------History----------");
 				for(int i = 0; i < history_list.size(); i++) {
 						System.out.println(history_list.get(i));
 				}	
