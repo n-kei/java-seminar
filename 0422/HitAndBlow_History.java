@@ -12,7 +12,7 @@ public class HitAndBlow_History {
 				System.out.println("-------------------------History-------------------------");
 				for(int i = 0; i < history_list.size(); i++) {
 						for(int j = 0; j < history_list.get(i).getDigitNum(); j++) {
-								System.out.print(history_list.get(i).getDigits()[j] + " ");
+								System.out.print(history_list.get(i).getDigits()[j]);
 						}
 						System.out.println(" ");
 				}
