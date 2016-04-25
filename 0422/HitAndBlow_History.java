@@ -8,7 +8,7 @@ public class HitAndBlow_History {
 		}
 
 		public static void outputHistory(){
-			//	Collections.sort(history_list);
+				Collections.sort(history_list, new HitAndBlow_nDigit_Comparator());
 				System.out.println("-------------------------History-------------------------");
 				for(int i = 0; i < history_list.size(); i++) {
 						for(int j = 0; j < history_list.get(i).getDigitNum(); j++) {

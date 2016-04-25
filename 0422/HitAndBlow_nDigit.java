@@ -1,4 +1,4 @@
-public class HitAndBlow_nDigit implements Comparable {
+public class HitAndBlow_nDigit {
 		private int[] digits;
 		private int digitNum = 0;
 		private	int hitNum = 0;
@@ -58,8 +58,5 @@ public class HitAndBlow_nDigit implements Comparable {
 				System.out.println();
 		}
 
-		public int compareTo(Object other) {
-				HitAndBlow_nDigit otherNDigit = (HitAndBlow_nDigit) other;
-				return this.hitNum - otherNDigit.getHitNum(); 
-		}
 }
+
