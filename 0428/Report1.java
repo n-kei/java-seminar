@@ -1,106 +1,120 @@
-/**
- * <p>タイトル: Report1.java</p>
- * <p>説明: Mouseイベントで座標を表示する</p>
- * <p>著作権: Copyright (c) 2002 Naoya Ando</p>
- * <p>日付: 2002/9/8</p>
- * @author Naoya Ando
- * @version 1.0
- */
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.awt.Graphics;
+import java.awt.Color;
 
 public class Report1 extends JFrame
-    implements ActionListener, MouseListener, KeyListener, WindowListener
+	implements ActionListener, MouseListener, KeyListener, WindowListener
 {
+	String strCaption = null;
 
-    //タイトルバー
-    String strCaption = null;
+	Graphics G;
+	private int ovalX = 100;
+	private int ovalY = 100;
 
-    Graphics G;
+	Report1(String title)
+	{
+		super(title);
+		strCaption = title;
 
-    Report1(String title)
-    {
-        super(title);
-        strCaption = title;
+		Container cp = getContentPane();
+		cp.setBackground(Color.white);
+		addMouseListener(this);
+		addKeyListener(this);
+		addWindowListener(this);
 
-
-        //Mouseイベントで座標を表示する
-        Container cp = getContentPane();
-        cp.setBackground(getBackground());
-        addMouseListener(this);
-        addKeyListener(this);
-        addWindowListener(this);
-
-        setVisible(true); //!!
-        G = getGraphics();
-    }
-
-    //Mouseイベント
-    public void mousePressed(MouseEvent evt)
-    {
-        int x = evt.getX();
-        int y = evt.getY();
-        G.drawRect(x, y, 10, 10);
-    }
-
-    public void mouseClicked(MouseEvent evt) {}
-    public void mouseEntered(MouseEvent evt) {}
-    public void mouseExited(MouseEvent evt) {}
-    public void mouseReleased(MouseEvent evt) {
-		int x = evt.getX();
-		int y = evt.getY();
-	
-		G.drawOval(x, y, 10, 10);
+		setVisible(true); 
+		G = getGraphics();
 	}
 
-    //Keyイベント
-    public void keyReleased(KeyEvent evt)
-    {
-        repaint();
-    }
+	public void paint(Graphics g) {
+		g.setColor(Color.black);
+		g.fillOval(ovalX, ovalY, 10, 10);
+	}
 
-    public void keyPressed(KeyEvent evt) {}
-    public void keyTyped(KeyEvent evt) {}
+	public void mousePressed(MouseEvent evt)
+	{
+		int x = evt.getX();
+		int y = evt.getY();
+		G.setColor(Color.black);
+		G.drawRect(x, y, 10, 10);
+		G.setColor(Color.white);
+	}
 
-    //Windowイベント
-    public void windowClosing(WindowEvent evt)
-    {
-        dispose();
-    }
+	public void mouseClicked(MouseEvent evt) {}
+	public void mouseEntered(MouseEvent evt) {}
+	public void mouseExited(MouseEvent evt) {}
+	public void mouseReleased(MouseEvent evt) {
+		int x = evt.getX();
+		int y = evt.getY();
 
-    public void windowClosed(WindowEvent evt)
-    {
-        menuFileExit();
-    }
+		G.setColor(Color.black);
+		G.drawOval(x, y, 10, 10);
+		G.setColor(Color.white);
+	}
 
-    public void windowOpened(WindowEvent evt) {}
-    public void windowActivated(WindowEvent evt) {}
-    public void windowDeactivated(WindowEvent evt) {}
-    public void windowIconified(WindowEvent evt) {}
-    public void windowDeiconified(WindowEvent evt) {}
+	public void keyReleased(KeyEvent evt)
+	{
+		repaint();
+	}
 
-    public void actionPerformed(ActionEvent evt)
-    {
-    }
+	public void keyPressed(KeyEvent evt) {
+		char key = evt.getKeyChar();	
 
-    //タイトルバー
-    void updateCaption()
-    {
-        this.setTitle(strCaption);
-    }
+		G.setColor(Color.white);
+		G.fillOval(ovalX, ovalY, 10, 10);
+		if(key == 'w') {
+			ovalY--;
+			if(ovalY < 0)
+				ovalY = 0;
+		} else if(key == 'a') {
+			ovalX--;
+			if(ovalX < 0)
+				ovalX = 0;
+		} else if(key == 's') {
+			ovalY++;
+			if(ovalY > 240)
+				ovalY = 240;
+		} else if(key == 'd') {
+			ovalX++;
+			if(ovalX > 320)
+				ovalX = 320;
+		}  
 
-    void menuFileExit()
-    {
-        System.exit(0);
-    }
+	}
+	public void keyTyped(KeyEvent evt) {}
 
-    public static void main(String[] args)
-    {
-        Report1 frame = new Report1("座標の表示");
-        frame.setLocation(100, 100);
-        frame.setSize(320, 240);
-        frame.setVisible(true);
-    }
+	public void windowClosing(WindowEvent evt)
+	{
+		dispose();
+	}
+	public void windowClosed(WindowEvent evt) {}
+	public void windowOpened(WindowEvent evt) {}
+	public void windowActivated(WindowEvent evt) {}
+	public void windowDeactivated(WindowEvent evt) {}
+	public void windowIconified(WindowEvent evt) {}
+	public void windowDeiconified(WindowEvent evt) {}
+
+	public void actionPerformed(ActionEvent evt)
+	{
+	}
+
+	void updateCaption()
+	{
+		this.setTitle(strCaption);
+	}
+
+	void menuFileExit()
+	{
+		System.exit(0);
+	}
+
+	public static void main(String[] args)
+	{
+		Report1 frame = new Report1("レポート12");
+		frame.setLocation(100, 100);
+		frame.setSize(320, 240);
+		frame.setVisible(true);
+	}
 }
