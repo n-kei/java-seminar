@@ -1,7 +1,6 @@
 public class HitAndBlow_nDigit {
 		private int[] digits;
 		private int digitNum = 0;
-		private String HitStr;
 
 		public HitAndBlow_nDigit(String digit_str, String separator)
 				throws Exception {
@@ -13,7 +12,6 @@ public class HitAndBlow_nDigit {
 				digitNum = digits.length;
 		}
 
-		public String getHitNum(){return HitStr;}
 		public int getDigitNum(){ return digitNum;}
 		public int[] getDigits(){return digits;}	
 
@@ -28,7 +26,6 @@ public class HitAndBlow_nDigit {
 								hitNum++;		
 						}
 				}
-				HitStr = String.valueOf(hitNum);
 				return hitNum;
 		}
 

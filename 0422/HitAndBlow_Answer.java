@@ -4,12 +4,16 @@ public class HitAndBlow_Answer {
 		private int answerNum = 0;
 		private int answerRange = 0;
 
-		public HitAndBlow_Answer(int answerNum, int answerRange) {
+		public HitAndBlow_Answer (int answerNum, int answerRange) 
+				throws ElementNumberMissingException {
+				if(answerNum > answerRange) {
+						throw new ElementNumberMissingException("error: item num must be less than answer num.");
+				}
 				this.answerNum = answerNum;
 				this.answerRange = answerRange;
 		}
 
-		public HitAndBlow_nDigit getAnswer() {
+		public HitAndBlow_nDigit getAnswer() throws Exception{
 				HitAndBlow_nDigit digit = null;
 				Random rnd = new Random();
 				String answer_str = new String();
@@ -23,12 +27,7 @@ public class HitAndBlow_Answer {
 						}
 				}
 				answer_str = answer_str.trim();
-				try {
-						digit = new HitAndBlow_nDigit(answer_str, " ");
-				}catch(Exception e) {
-						System.out.println("生成された数列は不正です。");
-						System.exit(-1);
-				}
+				digit = new HitAndBlow_nDigit(answer_str, " ");
 				return digit;
 		}
 }
